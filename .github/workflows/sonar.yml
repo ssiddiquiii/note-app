@@ -2,7 +2,7 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - main
+      - main  # Jab bhi main branch par code jayega, scan chalega
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones disable reporting
+          fetch-depth: 0  # Important: Poori history padhne ke liye zaroori hai
       
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
